@@ -1,0 +1,29 @@
+.btn{
+  border: none;
+  width: 100%;
+  padding: 8px;
+  color: white;
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+.btn-added{
+  background-color: #689F38;
+  &:hover{
+    background-color: #7CB342;
+  }
+  &:focus{
+    background-color: #558B2F;
+  } 
+}
+
+.btn-out{
+  background-color: #D32F2F;
+  &:hover{
+    background-color:#E53935;
+  }
+  &:focus{
+    background-color: #C62828;
+  }  
+}

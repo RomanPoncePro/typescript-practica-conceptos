@@ -1,0 +1,18 @@
+.btn-container{
+  display: flex;
+  justify-content: space-between;
+}
+.btn-count{
+  border: none;
+  border-radius: 100%;
+  font-size: 18px;
+  background-color: #6eaffa;
+  height: 40px;
+  width: 40px;
+  &:hover{
+    cursor: pointer;
+    background-color: #5ca8ff;
+  }
+
+}
+#6eaffa;
