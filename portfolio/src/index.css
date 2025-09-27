@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.seccion {
+  height: 100vh;
+}
+
+.presentacion-seccion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #5490f0;
+}
+.presentacion-card {
+  background-color: #669cf2;
+}
+
+.proyecto-seccion {
+  background-color: red;
+}

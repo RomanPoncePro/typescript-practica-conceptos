@@ -1,27 +1,27 @@
-import { useCarShopDispach } from '../contexts/CarShopProvider'
-import '../style/btnAddCardShop.css'
+import { useCarShopDispach } from "../contexts/CarShopProvider";
+import "../style/btnAddCardShop.css";
 
 type Props = {
-  id: number
-}
+  id: number;
+};
 
-export const BtnRemoveCarShop = (props: Props) => {
-  const { id } = props
-  const  dispatch  = useCarShopDispach()
+const BtnRemoveCarShop = (props: Props) => {
+  const { id } = props;
+  const dispatch = useCarShopDispach();
 
-  const handleDeleteProduct = () =>{
-    console.log(id)
+  const handleDeleteProduct = () => {
+    console.log(id);
     dispatch({
-      type:'[CARSHOP] DELETE',
-      payload: id
-    })
-  }
+      type: "[CARSHOP] DELETE",
+      payload: id,
+    });
+  };
 
   return (
-  <button
-  type='button'
-  onClick={handleDeleteProduct}
-  className='btn btn-out'
-  >remove</button>
-)
-}
+    <button type="button" onClick={handleDeleteProduct} className="btn btn-out">
+      remove
+    </button>
+  );
+};
+
+export default BtnRemoveCarShop;

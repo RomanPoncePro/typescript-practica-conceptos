@@ -1,9 +1,7 @@
-
-
 type FetchState<T> = {
-  data: T | null ;
+  data: T | null;
   isLoading: boolean;
-  errors: unknown | null;
-}
+  errors: Error | null;
+};
 
-export default FetchState
+export default FetchState;

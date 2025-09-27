@@ -1,39 +1,43 @@
-import { useState, useEffect } from "react"; 
+import { useState, useEffect } from "react";
 import type FetchState from "../types/FetchState";
 import type Products from "../types/Products";
 
-export const useFetch = (url:string) => {
+export const useFetch = (url: string) => {
+  const [estado, setEstado] = useState<FetchState<Products[]>>({
+    data: null,
+    isLoading: true,
+    errors: null,
+  });
 
-  const [ estado , setEstado ] = useState<FetchState<Products[]>>({
-    data:null,
-    isLoading:true,
-    errors:null
-  })
-   
-  const getFetch = async () => {
-    if(!url) return
-    try{
-      const response = await fetch(url)
-      const data = await response.json()
-      setEstado({
-        data,
-        isLoading:false,
-        errors:null
-      })
-    }catch(error){
-      setEstado({
-        data:null,
-        isLoading:true,
-        errors:error
-      })
-    }
-  }
+  useEffect(() => {
+    const getFetch = async () => {
+      if (!url) return;
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error(`${response.status}`);
+        }
+        const data = await response.json();
+        setEstado({
+          data,
+          isLoading: false,
+          errors: null,
+        });
+      } catch (error) {
+        if (error instanceof Error)
+          setEstado({
+            data: null,
+            isLoading: false,
+            errors: error,
+          });
+        else {
+          throw new Error(`Error desconocido: ${error}`);
+        }
+      }
+    };
 
-  useEffect(() => { 
-    getFetch() 
-  },[url])
+    getFetch();
+  }, [url]);
 
-  return estado
-
-}
-
+  return estado;
+};

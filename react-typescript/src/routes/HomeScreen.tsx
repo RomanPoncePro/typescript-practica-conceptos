@@ -1,10 +1,9 @@
 export const HomeScreen = () => {
-
-
   return (
     <>
-    <h1>Pagina home</h1>
+      <h1>Datos del usuario logeado</h1>
     </>
+  );
+};
 
-  )
-}
+export default HomeScreen;
