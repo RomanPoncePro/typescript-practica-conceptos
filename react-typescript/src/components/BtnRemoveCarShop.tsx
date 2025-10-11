@@ -1,4 +1,4 @@
-import { useCarShopDispach } from "../contexts/CarShopProvider";
+import { useCarShopDispach } from "../contexts/carshop/CarShopProvider";
 import "../style/btnAddCardShop.css";
 
 type Props = {

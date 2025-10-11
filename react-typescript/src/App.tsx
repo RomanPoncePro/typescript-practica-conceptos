@@ -4,7 +4,7 @@ import ProductsScreen from "./routes/ProductsScreen";
 import HomeScreen from "./routes/HomeScreen";
 import NavBar from "./components/NavBar";
 import ProductProvider from "./contexts/ProductProvider";
-import { CarShopProvider } from "./contexts/CarShopProvider";
+import { CarShopProvider } from "./contexts/carshop/CarShopProvider";
 import { UserScreen } from "./routes/UserScreen";
 
 export const App = () => {

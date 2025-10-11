@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import type FetchState from "../types/FetchState";
 import type Products from "../types/Products";
 
-export const useFetch = (url: string) => {
-  const [estado, setEstado] = useState<FetchState<Products[]>>({
+export const useFetch = <T>(url: string) => {
+  const [data, setData] = useState<FetchState<Products[]>>({
     data: null,
     isLoading: true,
     errors: null,
@@ -18,14 +18,14 @@ export const useFetch = (url: string) => {
           throw new Error(`${response.status}`);
         }
         const data = await response.json();
-        setEstado({
+        setData({
           data,
           isLoading: false,
           errors: null,
         });
       } catch (error) {
         if (error instanceof Error)
-          setEstado({
+          setData({
             data: null,
             isLoading: false,
             errors: error,
@@ -39,5 +39,5 @@ export const useFetch = (url: string) => {
     getFetch();
   }, [url]);
 
-  return estado;
+  return data;
 };

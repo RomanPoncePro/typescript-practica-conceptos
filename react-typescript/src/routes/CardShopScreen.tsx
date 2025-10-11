@@ -1,11 +1,13 @@
-import { useCarShopContext } from "../contexts/CarShopProvider";
+import useCarShop from "../contexts/useCarShop";
 import { ProductCard } from "../components/ProductCard";
 import BtnRemoveCarShop from "../components/BtnRemoveCarShop";
 import BtnSumProduct from "../components/BtnSumProduct";
+import type Products from "../types/Products";
+
 import "../style/layout.css";
 
 const CardShopScreen = () => {
-  const carShop = useCarShopContext();
+  const carShop = useCarShop();
 
   return (
     <>
@@ -13,7 +15,7 @@ const CardShopScreen = () => {
         {
           // Filtro el primer elemento porque es el valor incial de useState
           carShop ? (
-            carShop.map((product) => (
+            carShop.map((product: Products) => (
               <ProductCard
                 key={product.id}
                 title={product.title}
@@ -31,8 +33,8 @@ const CardShopScreen = () => {
         <p>
           Total: $
           {carShop.reduce(
-            (priceTotal, priceCurrent) =>
-              priceTotal + Number(priceCurrent.totalPrice ?? 0),
+            (priceTotal: number, priceCurrent: Products) =>
+              priceTotal + Number(priceCurrent.totalPrice),
             0
           )}
         </p>

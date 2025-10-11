@@ -1,6 +1,6 @@
 import { createContext, useContext } from "react";
-import type Products from "../types/Products";
-import type FetchState from "../types/FetchState";
+import type Products from "../../types/Products";
+import type FetchState from "../../types/FetchState";
 
 const initialState: FetchState<Products[]> = {
   data: null,
@@ -18,4 +18,4 @@ const useProductContext = () => {
   return productContext;
 };
 
-export { useProductContext, ProductContext};
+export { useProductContext, ProductContext };
