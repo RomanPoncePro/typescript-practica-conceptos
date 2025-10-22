@@ -1,10 +1,7 @@
 import type Products from "../types/Products";
 import type CarShopAction from "../types/CarShopAction";
 
-export const carShopReducer = (
-  state: Products[] | Products,
-  action: CarShopAction
-) => {
+export const carShopReducer = (state: Products[], action: CarShopAction) => {
   switch (action.type) {
     case "[CARSHOP] ADD":
       return [...state, action.payload];
@@ -34,6 +31,8 @@ export const carShopReducer = (
 
     case "[CARSHOP] DELETE":
       return state.filter((product: Products) => product.id !== action.payload);
+    default:
+      return state;
   }
 };
 export default carShopReducer;

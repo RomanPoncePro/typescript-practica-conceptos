@@ -11,7 +11,7 @@ const ProductProvider = ({ children }: Props) => {
   const response = useFetch<Products[]>(
     "https://api.escuelajs.co/api/v1/products"
   );
-
+  console.log(response);
   return (
     <ProductContext.Provider value={response}>
       {children}

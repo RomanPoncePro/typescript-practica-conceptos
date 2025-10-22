@@ -1,17 +1,15 @@
-import useCarShop from "../contexts/useCarShop";
+import useCarShop from "../hooks/useCarShop";
 import { ProductCard } from "../components/ProductCard";
 import BtnRemoveCarShop from "../components/BtnRemoveCarShop";
 import BtnSumProduct from "../components/BtnSumProduct";
 import type Products from "../types/Products";
-
-import "../style/layout.css";
 
 const CardShopScreen = () => {
   const carShop = useCarShop();
 
   return (
     <>
-      <main className="layout">
+      <main>
         {
           // Filtro el primer elemento porque es el valor incial de useState
           carShop ? (

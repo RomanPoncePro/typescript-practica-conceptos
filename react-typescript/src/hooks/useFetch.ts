@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import type FetchState from "../types/FetchState";
-import type Products from "../types/Products";
+import FetchState from "../types/FetchState";
+
 
 export const useFetch = <T>(url: string) => {
-  const [data, setData] = useState<FetchState<Products[]>>({
+  const [data, setData] = useState<FetchState<T>>({
     data: null,
     isLoading: true,
     errors: null,

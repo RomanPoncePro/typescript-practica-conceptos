@@ -1,26 +1,23 @@
 import { Routes, Route } from "react-router-dom";
+import PublicLayout from "./layout/PublicLayout";
+
 import CardShopScreen from "./routes/CardShopScreen";
-import ProductsScreen from "./routes/ProductsScreen";
 import HomeScreen from "./routes/HomeScreen";
-import NavBar from "./components/NavBar";
-import ProductProvider from "./contexts/ProductProvider";
-import { CarShopProvider } from "./contexts/carshop/CarShopProvider";
+import ProductPage from "./pages/public/ProductPage";
+
 import { UserScreen } from "./routes/UserScreen";
 
 export const App = () => {
   return (
     <>
-      <CarShopProvider>
-        <ProductProvider>
-          <NavBar />
-          <Routes>
-            <Route path="/" element={<HomeScreen />} />
-            <Route path="/car" element={<CardShopScreen />} />
-            <Route path="/product" element={<ProductsScreen />} />
-            <Route path="/user" element={<UserScreen />} />
-          </Routes>
-        </ProductProvider>
-      </CarShopProvider>
+      <Routes>
+        <Route path="/" element={<PublicLayout />}>
+          <Route index element={<HomeScreen />} />
+          <Route path="/car" element={<CardShopScreen />} />
+          <Route path="/product" element={<ProductPage />} />
+          <Route path="/user" element={<UserScreen />} />
+        </Route>
+      </Routes>
     </>
   );
 };

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { useCarShopDispach } from "../contexts/carshop/CarShopProvider";
-import { useCarShopContext } from "../contexts/carshop/CarShopProvider";
+import { useCarShopDispach } from "../hooks/useCarShopDispach";
 import "../style/btnAddCardShop.css";
 import type Products from "../types/Products";
+import useCarShop from "../hooks/useCarShop";
 
 type Props = {
   data: Products;
@@ -12,7 +12,7 @@ type Props = {
 
 export const BtnAddCarShop = (props: Props) => {
   const [addCarShop, setAddCarShop] = useState(true);
-  const carShop = useCarShopContext();
+  const carShop = useCarShop();
   const dispatch = useCarShopDispach();
 
   // TODO: Por que biome me marca esto como error. Nunca lo voy a entender.

@@ -1,8 +1,0 @@
-.layout{
-  background-color: #ebebeb;
-  padding-top: 20px;
-  display: grid;
-  grid-template-columns: repeat(3, 300px);
-  gap: 15px;
-  justify-content: center;
-}
